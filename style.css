@@ -128,7 +128,7 @@
     }
 
     .contentResult {
-      //display: none;
+      display: none;
       position: fixed;
       bottom: 30px;
       right: 30px;
@@ -142,14 +142,11 @@
       box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
     }
 
-    .contentResult.view {
+    .cookieAccepted.view, .cookieRefused.view {
+      transition: all 1s ease;
       opacity: 1;
+      visibility: visibible;
       display: block;
-      transition: all 0.3s ease;
-    }
-
-    .contentResult {
-      display: none;
     }
 
     .contentResult .cookieAccepted img, .contentResult .cookieRefused img {

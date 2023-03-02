@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <div class="contentResult">
+  <div class="contentResult" id="result">
     <div class="cookieAccepted" id="result-accepted">
       <img src="./checked.png" alt="">
       <p>Obrigado por aceitar nossa política de privacidade de dados!</p>
@@ -84,6 +84,7 @@
 
   <script>
     const popUp = document.getElementById("popUp-cookie");
+    const result = document.getElementById("result");
     const accepted = document.getElementById("result-accepted");
     const refused = document.getElementById("result-refused");
 
@@ -93,13 +94,22 @@
       //window['ga']('set', 'anonymizeIp', consent);
     } */
 
+    function hidePopup() {
+      accepted.style.display = 'none';
+      refused.style.display = 'none';
+      result.style.display = 'none';
+    }
+
     function aceitarCookies() {
       document.cookie = "cookies=true; max-age=" + 60 * 60 * 24 * 30;
       //setAnalyticsConsent(true);
       // Salva o valor do consentimento no localStorage
       localStorage.setItem("cookieBannerDisplayed", "true");
       popUp.classList.add("hide");
+      result.style.display = "block";
+      refused.style.display = "none";
       accepted.classList.add("view");
+      setTimeout(hidePopup, 4000);
     }
 
     function recusarCookies() {
@@ -107,8 +117,11 @@
       //setAnalyticsConsent(false);
       localStorage.setItem("cookieBannerDisplayed", "false");
       popUp.classList.add("hide");
+      result.style.display = "block";
+      accepted.style.display = "none";
       refused.classList.add("view");
       alert("Você recusou a política de dados e cookies. Alguns recursos do site podem não funcionar corretamente.");
+      setTimeout(hidePopup, 4000);
     }
 
     // Checando se o cookie foi aceito. Caso SIM, não exibe msg

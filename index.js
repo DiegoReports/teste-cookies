@@ -30,11 +30,3 @@ btnRecusarCookies.onclick = () => {
 let checkCookie = document.cookie.indexOf("CookieBy=Blumis"); //checking our cookie
 //if cookie is set then hide the cookie box else show it
 checkCookie != -1 ? cookieBox.classList.add("hide") : popUp.classList.remove("hide");
-
-console.log(setAnalyticsConsent)
-// Fecha o modal se o usuário clicar fora dele
-/* window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-} */
