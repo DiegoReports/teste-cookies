@@ -8,6 +8,14 @@
       font-family: sans-serif;
     }
 
+    header h1 {
+      padding: 10px 20px;
+    }
+
+    main p {
+      padding: 10px 40px;
+    }
+
     .modal {
       display: none;
       position: fixed;
