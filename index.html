@@ -82,6 +82,8 @@
     </div>
   </div> -->
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
     const popUp = document.getElementById("popUp-cookie");
     const result = document.getElementById("result");
@@ -109,7 +111,16 @@
       result.style.display = "block";
       refused.style.display = "none";
       accepted.classList.add("view");
-      setTimeout(hidePopup, 4000);
+      /* setTimeout(hidePopup, 4000); */
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Você aceitou a politica',
+        showConfirmButton: false,
+        toast: true,
+        timer: 6000
+      })
     }
 
     function recusarCookies() {
@@ -120,8 +131,16 @@
       result.style.display = "block";
       accepted.style.display = "none";
       refused.classList.add("view");
-      alert("Você recusou a política de dados e cookies. Alguns recursos do site podem não funcionar corretamente.");
-      setTimeout(hidePopup, 4000);
+      /* setTimeout(hidePopup, 4000); */
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Você não aceitou a politica',
+        showConfirmButton: false,
+        toast: true,
+        timer: 6000
+      })
     }
 
     // Checando se o cookie foi aceito. Caso SIM, não exibe msg
