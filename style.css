@@ -1,0 +1,163 @@
+/* Estilos CSS para o aviso de cookie */
+    /* Estilo do modal */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    body {
+      background: #f1f1f1;
+      height: 5000px;
+    }
+
+    .popUp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #fff;
+      max-width: 365px;
+      border-radius: 15px;
+      padding: 25px 25px 30px 25px;
+      text-align: center;
+
+      -webkit-box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
+      -moz-box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
+      box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
+    }
+
+    .popUp img {
+      max-width: 90px;
+    }
+
+    .popUp .content {
+      margin-top: 10px;
+    }
+
+    .popUp.hide {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .contentInfo header {
+      font-size: 25px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .contentInfo p {
+      color: #858585;
+      margin: 18px 0 20px 0;
+      font-size: 14px;
+    }
+
+    .contentInfo .buttons {
+      display: flex;
+      align-items: centet;
+      justify-content: center;
+    }
+
+    .buttons .item {
+      margin: 0 10px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      background: #1818;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .buttons a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #1818;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .contentResult {
+      //display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #fff;
+      max-width: 365px;
+      border-radius: 15px;
+      padding: 25px 25px 8px 25px;
+      text-align: center;
+      -webkit-box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
+      -moz-box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
+      box-shadow: -3px 5px 33px -31px rgba(0,0,0,0.51);
+    }
+
+    .contentResult.view {
+      opacity: 1;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .contentResult {
+      display: none;
+    }
+
+    .contentResult .cookieAccepted img, .contentResult .cookieRefused img {
+      max-width: 60px;
+    }
+
+    .contentResult p {
+      color: #858585;
+      margin: 18px 0 20px 0;
+      font-size: 14px;
+    }

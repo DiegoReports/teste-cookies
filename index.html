@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Política de dados e cookies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Nossa loja de vestidos de moda modesta</h1>
+  </header>
+  <main>
+    <p>Bem-vindo à nossa loja de vestidos de moda modesta! Aqui, levamos a privacidade e proteção de dados muito a
+      sério. Por isso, gostaríamos de explicar como usamos os seus dados para garantir um serviço de qualidade para
+      você.</p>
+
+    <p>Ao visitar nossa página, podemos coletar informações como sua localização geográfica, gênero, idade, tempo de
+      navegação na página e interesses. Essas informações nos ajudam a entender melhor o perfil dos nossos visitantes e
+      a personalizar a sua experiência de compra em nosso site. Por exemplo, podemos oferecer vestidos que se adequem
+      melhor às suas preferências de estilo ou localização geográfica.</p>
+
+    <p>É importante destacar que não compartilhamos suas informações pessoais com terceiros, a menos que isso seja
+      necessário para cumprir com obrigações legais. Além disso, tomamos medidas de segurança para proteger seus dados
+      pessoais de perda, roubo ou acesso não autorizado.</p>
+
+    <p>Ao navegar em nosso site, você pode ver um aviso de cookies. Esse aviso nos ajuda a coletar informações
+      adicionais sobre suas preferências de navegação e aprimorar ainda mais a sua experiência em nosso site. Lembre-se
+      de que você tem o controle sobre suas informações pessoais e pode optar por desativar ou limitar a coleta de
+      cookies por meio das configurações do seu navegador.</p>
+
+    <p>Esperamos que essa explicação tenha esclarecido como utilizamos seus dados para oferecer um serviço de qualidade
+      e personalizado para você. Em caso de dúvidas ou solicitações relacionadas aos seus dados pessoais, entre em
+      contato conosco por meio do nosso canal de atendimento ao cliente.</p>
+  </main>
+
+  <div class="popUp" id="popUp-cookie">
+    <img src="./shield.png" alt="">
+    <div class="contentInfo">
+      <header>Política de Dados e Cookies</header>
+      <p>Nós usamos alguns dados do visitante, como localização geográfica, gênero, idade, tempo de navegação na página,
+        interesses e outras informações, para oferecer um serviço de melhor qualidade.</p>
+      <p>Ao continuar a navegar em nosso site, você concorda com nossa política de dados e cookies. Caso não concorde,
+        por favor, feche esta página.</p>
+      <div class="buttons">
+        <button class="item" id="cookie-accept" onclick="aceitarCookies()">Aceitar</button>
+        <a href="#" class="item" id="cookie-decline" onclick="recusarCookies()">Recusar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contentResult">
+    <div class="cookieAccepted" id="result-accepted">
+      <img src="./checked.png" alt="">
+      <p>Obrigado por aceitar nossa política de privacidade de dados!</p>
+    </div>
+    <div class="cookieRefused" id="result-refused">
+      <img src="./warning.png" alt="">
+      <p>Você recusou a política de dados e cookies. Alguns recursos do site podem não funcionar corretamente.</p>
+    </div>
+  </div>
+
+
+
+  <!-- Botão para abrir o modal -->
+  <!-- <button id="cookie-modal-btn">Política de dados e cookies</button> -->
+
+  <!-- Modal -->
+  <!-- <div id="cookie-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Política de dados e cookies</h2>
+      <p>Nós usamos alguns dados do visitante, como localização geográfica, gênero, idade, tempo de navegação na página,
+        interesses e outras informações, para oferecer um serviço de melhor qualidade.</p>
+      <p>Ao continuar a navegar em nosso site, você concorda com nossa política de dados e cookies. Caso não concorde,
+        por favor, feche esta página.</p>
+      <div class="modal-buttons">
+        <button id="aceitar-cookies">Aceitar</button>
+        <button id="recusar-cookies">Recusar</button>
+      </div>
+    </div>
+  </div> -->
+
+  <script>
+    const popUp = document.getElementById("popUp-cookie");
+    const accepted = document.getElementById("result-accepted");
+    const refused = document.getElementById("result-refused");
+
+    // Define o valor da opção "anonymizeIp" de acordo com o consentimento do usuário
+    /* function setAnalyticsConsent(consent) {
+      //window['ga-disable-UA-XXXXXXXXX-X'] = !consent;
+      //window['ga']('set', 'anonymizeIp', consent);
+    } */
+
+    function aceitarCookies() {
+      document.cookie = "cookies=true; max-age=" + 60 * 60 * 24 * 30;
+      //setAnalyticsConsent(true);
+      // Salva o valor do consentimento no localStorage
+      localStorage.setItem("cookieBannerDisplayed", "true");
+      popUp.classList.add("hide");
+      accepted.classList.add("view");
+    }
+
+    function recusarCookies() {
+      document.cookie = "cookies=false; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+      //setAnalyticsConsent(false);
+      localStorage.setItem("cookieBannerDisplayed", "false");
+      popUp.classList.add("hide");
+      refused.classList.add("view");
+      alert("Você recusou a política de dados e cookies. Alguns recursos do site podem não funcionar corretamente.");
+    }
+
+    // Checando se o cookie foi aceito. Caso SIM, não exibe msg
+    let checkCookie = document.cookie.indexOf("cookies=true");
+    checkCookie != -1 ? popUp.classList.add("hide") : popUp.classList.remove("hide");
+
+  </script>
